@@ -4,7 +4,7 @@ from django.test import TestCase
 from posts.models import Post
 
 
-class BlogTests(TestCase):
+class ArticleTests(TestCase):
 
     @classmethod
     def setUpTestData(cls):
@@ -16,11 +16,11 @@ class BlogTests(TestCase):
 
         test_post = Post.objects.create(
             author=testuser1,
-            title='Blog title',
-            body='Body content'
+            title='Article title',
+            body='Article content'
         )
 
-    def test_blog_content(self):
+    def test_article_content(self):
         post = Post.objects.last()
 
         author = f'{post.author}'
@@ -28,5 +28,5 @@ class BlogTests(TestCase):
         body = f'{post.body}'
 
         self.assertEqual(author, 'testuser1')
-        self.assertEqual(title, 'Blog title')
-        self.assertEqual(body, 'Body content')
+        self.assertEqual(title, 'Article title')
+        self.assertEqual(body, 'Article content')
